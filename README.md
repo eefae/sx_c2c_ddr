@@ -4,7 +4,7 @@ The design includes bi-directional AXI master/slave pathways, and is built on th
 
 The FPGA fabric of HAPS-SX is made available to the FPGA of the SMF. 
 The 16GB SODIMM is therefore accessible to the PS of the SMF.
-A simple test program that writes & readbacks a short skipping sequence to demonstrate functionality of the C2C link.
+A simple test program is included that writes & readbacks a short skipping sequence, to demonstrate functionality of the C2C link.
 
 ## Requirements
 * Vitis Unified Software Platform 2022.2
