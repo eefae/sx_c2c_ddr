@@ -26,6 +26,7 @@ A simple test program is included that writes & readbacks a short skipping seque
 
 ## Getting Started
 Run ```create_prj.sh``` to create a workable Vivado project directory.
+
 Run ```clean_prj.sh``` to clean project and delete all generated files.
 
 Prebuilt deployables are included under the prebuilt folder.
