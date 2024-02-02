@@ -1,8 +1,10 @@
-# Chip to Chip Infastructure Template (HAPS-SX + SMF)
-This is an example design to be used as a starter template for designs using 2 FPGA chips.
+# Chip to Chip Example Design with DDR R/W (HAPS-SX + SMF)
+This is an example design to be used as a starter template for projects between 2 FPGA chips.
 The design includes bi-directional AXI master/slave pathways, and is built on the logiCORE AXI Chip2Chip IP core with 64b/66b serialization.
 
-The SODIMM on the HAPS-SX is available to the PS of the SMF. A simple test program that writes & readbacks a short skipping sequence to demonstrate functionality of the C2C link.
+The FPGA fabric of HAPS-SX is made available to the FPGA of the SMF. 
+The 16GB SODIMM is therefore accessible to the PS of the SMF.
+A simple test program that writes & readbacks a short skipping sequence to demonstrate functionality of the C2C link.
 
 ## Requirements
 * Vitis Unified Software Platform 2022.2
