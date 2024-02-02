@@ -35,7 +35,7 @@ add_files ./srcs/haps/rtl
 import_files -force
 
 # Create block diagram
-source ./srcs/haps/bd/bd_smf.tcl
+source ./srcs/haps/bd/bd_haps.tcl
 
 # Generate wrapper file for block diagram
 make_wrapper -files [get_files ./vivado/sx_c2c_haps/sx_c2c_haps.srcs/sources_1/bd/sx_c2c_haps/sx_c2c_haps.bd] -top
