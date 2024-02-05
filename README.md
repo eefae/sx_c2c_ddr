@@ -7,7 +7,8 @@ The 16GB SODIMM is therefore accessible to the PS of the SMF.
 A simple test program is included that writes & readbacks a short skipping sequence, to demonstrate functionality of the C2C link.
 
 The diagram below illustrates a simplified design structure:
-![diagram](https://github.com/eefae/sx_c2c_ddr/assets/126219401/63a43c44-5f37-46f5-9d14-59e3b6500af2)
+![image](https://github.com/eefae/sx_c2c_ddr/assets/126219401/fd157d26-2087-4691-912a-7842cf226094)
+
 
 ## Requirements
 * Vitis Unified Software Platform 2022.2
