@@ -4,8 +4,6 @@ set_property IOSTANDARD LVDS [get_ports GCLK3_clk_p]
 set_property PACKAGE_PIN BY53 [get_ports GCLK3_clk_p]
 
 
-
-
 #create_clock -period 6.400 -name aurora_refclk_clk_p -waveform {0.000 3.200} [get_ports aurora_refclk_clk_p]
 create_clock -period 10.00 -name GT_AURORA_REFCLK_clk_p -waveform {0.000 5.00} [get_ports GT_AURORA_REFCLK_clk_p]
 set_property PACKAGE_PIN BY9 [get_ports GT_AURORA_REFCLK_clk_p]
@@ -15,8 +13,10 @@ set_property PACKAGE_PIN BJ43 [get_ports RST_BTN]
 
 
 
-#=====================  DDR PIN CONSTRAINTS  ======================
-#==================================================================
+####################################################################################
+# DDR Pin Assignment
+####################################################################################
+
 
 set_property PACKAGE_PIN AF51 [get_ports DDR_REFCLK_clk_p]
 set_property PACKAGE_PIN AF52 [get_ports DDR_REFCLK_clk_n]
@@ -638,4 +638,24 @@ set_property IBUF_LOW_PWR FALSE [get_ports {C0_DDR4_0_dq[61]}]
 set_property IBUF_LOW_PWR FALSE [get_ports {C0_DDR4_0_dq[62]}]
 set_property IBUF_LOW_PWR FALSE [get_ports {C0_DDR4_0_dq[63]}]
 
+
+####################################################################################
+# Ignore timing for ILA probes
+####################################################################################
+
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_master/inst/aurora_lane_0_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[4].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[1]/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_master/inst/aurora_lane_0_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/shifted_data_in_reg[7][6]_srl8/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_slave/inst/sx_c2c_haps_aurora_slave_0_core_i/aurora_lane_0_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[1].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[1]/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_slave/inst/sx_c2c_haps_aurora_slave_0_core_i/aurora_lane_1_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[1].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[0]/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_slave/inst/sx_c2c_haps_aurora_slave_0_core_i/aurora_lane_1_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/shifted_data_in_reg[7][1]_srl8/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_master/inst/aurora_lane_1_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/shifted_data_in_reg[7][5]_srl8/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_master/inst/global_logic_i/channel_init_sm_i/CHANNEL_UP_RX_IF_reg/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[3].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[0]/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_master/inst/aurora_lane_1_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[4].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[0]/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_slave/inst/sx_c2c_haps_aurora_slave_0_core_i/aurora_lane_0_i/lane_init_sm_i/lane_up_flop_i/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/shifted_data_in_reg[7][2]_srl8/D}]
+set_false_path -from [get_pins sx_c2c_haps_i/c2c_block/aurora_slave/inst/sx_c2c_haps_aurora_slave_0_core_i/global_logic_i/channel_init_sm_i/CHANNEL_UP_RX_IF_reg/C] -to [get_pins {sx_c2c_haps_i/system_ila_0/inst/ila_lib/inst/ila_core_inst/shifted_data_in_reg[7][0]_srl8/D}]
+
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets clk]
 
