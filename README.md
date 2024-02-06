@@ -1,4 +1,4 @@
-![image](https://github.com/eefae/sx_c2c_ddr/assets/126219401/04f6e702-82d8-44b2-8ddd-5277240af0c6)# Chip to Chip Example Design with DDR R/W (HAPS-SX + SMF)
+# Chip to Chip Example Design with DDR R/W (HAPS-SX + SMF)
 This is an example design to be used as a starter template for projects between 2 FPGA chips.
 The design includes bi-directional AXI master/slave pathways, and is built on the logiCORE AXI Chip2Chip IP core with 64b/66b serialization.
 
@@ -46,7 +46,7 @@ You may choose either method below:
   -
   
 * SD Card Boot
-  - Prepare an SD card. See [SD Card Setup](#-this-is-a-heading) for details on SD card partition requirements.
+  - Prepare an SD card. See [SD Card Setup](##-SD-Card-Setup) for details on SD card partition requirements.
   - Copy ```BOOT.BIN``` into the 1st partition (vfat) of your SD card.
   - Insert SD card into SMF, and flip the boot mode switches into SD boot mode:
   
