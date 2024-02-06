@@ -46,7 +46,7 @@ You may choose either method below:
   -
   
 * SD Card Boot
-  - Prepare an SD card. See [SD Card Setup](##-SD-Card-Setup) for details on SD card partition requirements.
+  - Prepare an SD card. See [SD Card Setup](#sd-card-setup) for details on SD card partition requirements.
   - Copy ```BOOT.BIN``` into the 1st partition (vfat) of your SD card.
   - Insert SD card into SMF, and flip the boot mode switches into SD boot mode:
   
