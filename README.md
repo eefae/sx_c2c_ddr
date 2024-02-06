@@ -1,4 +1,4 @@
-# Chip to Chip Example Design with DDR R/W (HAPS-SX + SMF)
+# Chip2Chip Example Design (HAPS-SX + SMF)
 This is an example design to be used as a starter template for projects between 2 FPGA chips.
 The design includes bi-directional AXI master/slave pathways, and is built on the logiCORE AXI Chip2Chip IP core with 64b/66b serialization.
 
@@ -6,7 +6,8 @@ The FPGA fabric of HAPS-SX is made available to the FPGA of the SMF.
 The 16GB SODIMM is therefore accessible to the PS of the SMF.
 A simple test program is included that writes & readbacks a short skipping sequence, to demonstrate functionality of the C2C link.
 
-The diagram below illustrates a simplified design structure:
+The diagram below illustrates a simplified design structure:  
+  
 ![image](https://github.com/eefae/sx_c2c_ddr/assets/126219401/fd157d26-2087-4691-912a-7842cf226094)
 
 
@@ -43,8 +44,9 @@ Prebuilt deployables are included under the ```prebuilt``` folder.
 ### SMF Side
 You may choose either method below:
 * JTAG Boot
-  -
-  
+  - a
+  - b
+  - c
 * SD Card Boot
   - Prepare an SD card. See [SD Card Setup](#sd-card-setup) for details on SD card partition requirements.
   - Copy ```BOOT.BIN``` into the 1st partition (vfat) of your SD card.
