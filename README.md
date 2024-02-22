@@ -111,3 +111,8 @@ Re-mount the SD card and verify that the partitions have been correctly with `df
 ![image](https://user-images.githubusercontent.com/65555647/202139812-fe8016c8-a943-4d14-8a68-26c7399a89c3.png)
 
 The SD card is now ready to be loaded.
+
+
+
+## Petalinux
+
