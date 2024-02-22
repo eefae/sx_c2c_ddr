@@ -15,6 +15,7 @@ The diagram below illustrates a simplified design structure:
 * Vitis Unified Software Platform 2022.2
   - Vivado 2022.2
   - Vitis IDE 2022.2
+  - Petalinux Tools 2022.2
 * E-Elements HAPS-SX
   - FPGA part xcvu19p-fsva3824-2-e
 * E-Elements SMF Daughter Card
@@ -115,4 +116,12 @@ The SD card is now ready to be loaded.
 
 
 ## Petalinux
+The C2C link may also be demonstrated under a running OS (Petalinux), although devices need to manually defined in a handwritten device tree. This is due to control endpoints on the HAPS-SX effectively appearing as a black box to the petalinux build tools, as they lie physically on a separate chip.
 
+To start, create a new Petalinux project:
+```petalinux-create -t project -n plnx --template zynqMP```  
+
+```cd plnx``` into the newly created project directory and import the hw description provided in ```prebuilds```
+```petalinux-config --get-hw-decription sx_c2c_smf.xsa```
+
+This will bring up a configuration screen:  
