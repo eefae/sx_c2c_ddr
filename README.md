@@ -118,10 +118,46 @@ The SD card is now ready to be loaded.
 ## Petalinux
 The C2C link may also be demonstrated under a running OS (Petalinux), although devices need to manually defined in a handwritten device tree. This is due to control endpoints on the HAPS-SX effectively appearing as a black box to the petalinux build tools, as they lie physically on a separate chip.
 
+
+### Project Creation
 To start, create a new Petalinux project:
 ```petalinux-create -t project -n plnx --template zynqMP```  
 
-```cd plnx``` into the newly created project directory and import the hw description provided in ```prebuilds```
+```cd plnx``` into the newly created project directory and import the hw description provided in the ```prebuilt``` folder:
 ```petalinux-config --get-hw-decription sx_c2c_smf.xsa```
 
 This will bring up a configuration screen:  
+![image](https://github.com/eefae/sx_c2c_ddr/assets/126219401/6adc96ef-37c0-48ce-bad5-a3c6d109f3db)
+
+Config the root filesystem to EXT4 under Image Packing Configuration --> Root filesystem type
+![image](https://github.com/eefae/sx_c2c_ddr/assets/126219401/4d8f5ded-e347-4b0a-807f-ec67c57dba53)
+
+Make sure to save and exit.
+
+
+### Device Tree
+The finalized device tree for Petalinux is a compilation of multiple layers of tree bindings. The file
+```plnx/project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi``` is a user-layer device tree that will be addended on top of the auto-generated device tree bindings from your .xsa hardware description.
+
+This is where we will define all the available but 'invisible' devices on the HAPS-SX. In this case, we only have a memory block, so we will create a new memory node as so:
+```
+/include/ "system-conf.dtsi"
+/{  
+    memory@1000000000{
+        device_type = "memory";
+        reg = <0x10 0x00000000 0x04 0x00000000>;
+    };
+};
+```
+
+This will now mark the specified memory region to be available at the OS-level.
+
+
+### Building and Packaging
+To build the Petalinux image, simple use  
+```petalinux-build```  
+
+Note that this process may be quite lengthy on a first time build, and may take up to an hour.  
+After the build is complete, package the boot binaries and image using  
+```petalinux-package --boot --u-boot --force```
+
