@@ -154,7 +154,7 @@ This will now mark the specified memory region to be available at the OS-level.
 
 
 ### Building and Packaging
-To build the Petalinux image, simple use  
+To build the Petalinux image, simply use  
 ```petalinux-build```  
 
 Note that this process may be quite lengthy on a first time build, and may take up to an hour.  
@@ -163,7 +163,9 @@ After the build is complete, package the boot binaries and image using
 
 
   
-  
+
+
+For quick use, the completed system-user.dtsi is provided below:
 
 ```
 #include <dt-bindings/pinctrl/pinctrl-zynqmp.h>
@@ -173,6 +175,12 @@ After the build is complete, package the boot binaries and image using
 #include <dt-bindings/gpio/gpio.h>
 /include/ "system-conf.dtsi"
 
+/{  
+    memory@1000000000{
+        device_type = "memory";
+        reg = <0x10 0x00000000 0x04 0x00000000>;
+    };
+};
 
 &usb0 {
     status = "okay";
