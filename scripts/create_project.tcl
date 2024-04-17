@@ -5,7 +5,7 @@ create_project sx_c2c_smf ./vivado/sx_c2c_smf -part xczu4eg-fbvb900-2-e
 
 # Add various sources to the project
 add_files -fileset constrs_1 ./srcs/smf/constrs
-add_files ./srcs/smf/rtl
+#add_files ./srcs/smf/rtl
 
 # Now import/copy the files into the project
 import_files -force
@@ -29,7 +29,7 @@ create_project sx_c2c_haps ./vivado/sx_c2c_haps -part xcvu19p-fsva3824-2-e
 
 # Add various sources to the project
 add_files -fileset constrs_1 ./srcs/haps/constrs
-add_files ./srcs/haps/rtl
+#add_files ./srcs/haps/rtl
 
 # Now import/copy the files into the project
 import_files -force
